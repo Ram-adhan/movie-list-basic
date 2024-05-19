@@ -1,14 +1,21 @@
 package com.inbedroom.myapplication.data
 
 import com.google.gson.Gson
+import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import com.inbedroom.myapplication.BuildConfig
 import com.inbedroom.myapplication.model.MovieItemResponse
+import com.inbedroom.myapplication.model.MovieRequest
 import com.inbedroom.myapplication.model.MoviesResponse
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
 import java.util.concurrent.TimeUnit
+import kotlin.time.ExperimentalTime
+import kotlin.time.measureTime
+import kotlin.time.measureTimedValue
 
 class RepositoryClass {
     private fun client(): OkHttpClient = OkHttpClient.Builder()
@@ -42,6 +49,5 @@ class RepositoryClass {
         } catch (e: java.lang.Exception) {
             null
         }
-
     }
 }

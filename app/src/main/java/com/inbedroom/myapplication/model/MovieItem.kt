@@ -1,9 +1,11 @@
 package com.inbedroom.myapplication.model
 
+import com.google.gson.annotations.SerializedName
+
 data class MovieItemResponse(
-    val Title: String? = null,
-    val Year: String? = null,
-    val imdbID: String? = null,
-    val Type: String? = null,
-    val Poster: String? = null,
+    @SerializedName("Title") val title: String? = null,
+    @SerializedName("Year") val year: String? = null,
+    @SerializedName("imdbID") val imdbID: String? = null,
+    @SerializedName("Type") val type: String? = null,
+    @SerializedName("Poster") val poster: String? = null,
 )

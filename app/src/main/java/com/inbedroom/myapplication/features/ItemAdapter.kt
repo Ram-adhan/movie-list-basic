@@ -23,12 +23,12 @@ class ItemAdapter(private var itemList: List<MovieItemResponse>): RecyclerView.A
 
     inner class ViewHolder(private val binding: RvItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MovieItemResponse) {
-            if (!item.Poster.isNullOrBlank()) {
+            if (!item.poster.isNullOrBlank()) {
                 Glide.with(itemView.context)
-                    .load(item.Poster)
+                    .load(item.poster)
                     .into(binding.ivPoster)
             }
-            binding.tvTitle.text = item.Title
+            binding.tvTitle.text = item.title
         }
     }
 }
