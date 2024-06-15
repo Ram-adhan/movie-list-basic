@@ -9,6 +9,8 @@ import com.inbedroom.myapplication.model.MovieItemResponse
 
 class ItemAdapter(private var itemList: List<MovieItemResponse>): RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
+    var listener: ((Int) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             RvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,6 +25,7 @@ class ItemAdapter(private var itemList: List<MovieItemResponse>): RecyclerView.A
 
     inner class ViewHolder(private val binding: RvItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MovieItemResponse) {
+            binding.root.setOnClickListener { listener?.invoke(adapterPosition) }
             if (!item.poster.isNullOrBlank()) {
                 Glide.with(itemView.context)
                     .load(item.poster)
